@@ -1,25 +1,22 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
-import Contador from "../components/Contador.vue"
-import ControlBoton from '../components/ControlBoton.vue'
-import { almacenContador } from '../stores/contador'
-
-const contar = almacenContador()
+import { ref, reactive } from "vue";
+import Contador from "../components/Props.vue";
+import ControlBoton from "../components/Emit.vue";
 
 // Inferencia / Deduce el tipo Ref<number>
-/* const infoApp = reactive({
-  nombre: 'Contador',
-  texto: 'Vamos a contar'
-})
+const infoApp = reactive({
+  nombre: "Contador",
+  texto: "Vamos a contar",
+});
 
-var saludo = ref('Hola');
+var saludo = ref("Hola");
 var contador = ref(0);
 
 function incrementar() {
-  contador.value ++
-} */
+  contador.value++;
+}
 
-interface InfoApp {
+/* interface InfoApp {
   nombre: string
   texto: string
 }
@@ -35,7 +32,7 @@ const contador = ref<number | string>(0);
 function incrementar() {
   if (typeof contador.value === "number")
   contador.value ++
-}
+} */
 </script>
 
 <template>
@@ -44,20 +41,11 @@ function incrementar() {
   <h1>{{ infoApp.texto }}</h1>
   <p>{{ contador }}</p>
   <button @click="incrementar">Incrementar</button>
-  <br>
-  <Contador
-    :limite="10"
-    :alerta-limite-mensajes='"No puede superar"'
-  />
-  <br>
-  <br>
+  <br />
+  <Contador :limite="10" :alerta-limite-mensajes="'No puede superar'" />
+  <br />
+  <br />
   <p>{{ contador }}</p>
-  <control-boton
-    @incrementar="incrementar"
-    @reiniciar-contador="contador = 0"
-  >
+  <control-boton @incrementar="incrementar" @reiniciar-contador="contador = 0">
   </control-boton>
-
 </template>
-
-
