@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import ControlBoton from "../components/Emit.vue";
+import Emit from "../components/Emit.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -27,9 +27,13 @@ function incrementar(num: number) {
 
 <template>
   <p>{{ contador }}</p>
-  <button @click="incrementar(2)">Incrementar Props</button>
+  <button 
+    @click="incrementar(2)">Incrementar Props
+  </button>
   <br />
   <br />
-  <control-boton @incrementar="incrementar" @reiniciar-contador="contador = 0">
-  </control-boton>
+  <Emit 
+    @incrementar="incrementar" 
+    @reiniciar-contador="contador = 0"
+  />
 </template>

@@ -8,6 +8,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <button @click="emit('incrementar', 4)">Incrementar Emits</button>
-  <button @click="emit('reiniciarContador')">Reiniciar contador</button>
+  <button 
+    @click="emit('incrementar', 4)">
+    Incrementar Emits
+  </button>
+  <button 
+    @click="emit('reiniciarContador')">
+    Reiniciar contador
+  </button>
 </template>
